@@ -1,0 +1,168 @@
+{% extends "project/login_layout.html" %}
+
+{% block body %}
+<br>
+<marquee direction="margin-right"  style="background-color: rgb(212, 212, 206) ; "><h3 style="color: rgb(228, 15, 15); text-align: center;"> ALERT! Vaccination for the age group 18+ has started. Check Cowin App for more details. || If you need any help, kindly contact us.</h3></marquee> 
+<br>
+<h2 style="margin-top: 1cm;">ACCOUNT LOGIN </h2>
+
+{% if message %}
+    <div>{{ message }}</div>
+{% endif %}
+<br>
+
+
+<form class="login-form" action="{% url 'login_details' %}" method="post">
+    {% csrf_token %}
+    
+    <h4>Username : </h4><input type="text" id="username_login" name="username" placeholder="USERNAME" style="padding: 1%;margin:1%">
+    <h4>Password : </h4><input type="password" id="password-login" name="password" placeholder="PASSWORD" style="padding: 1%;margin:1%">
+    
+    
+    <input class="btn btn-primary" type="submit" value="login">
+
+        <!--<button type="submit" onclick="login_func()" id="submit_button">Login</button>-->
+</form>
+Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+<br>
+<br>
+<h3 style="text-align: center;"> Our website is continuously updating information! If you have any EMERGENCY, use below given resources or<a class="btn btn-outline-primary" href="{% url 'contact' %}">Contact Us</a></h3>       
+
+
+<style>
+    .card:hover{
+                box-shadow: 2px 4px 4px 8px rgb(92, 89, 89);
+                background-color: rgb(210, 238, 87);
+
+        }
+        .card-group{
+            
+            padding: 1%;
+        }
+</style>
+
+<div class="container">
+    <div class="card-group">
+        <div class="col">
+            <div class="card h-100">
+                {% load static %}
+              <img src="{% static 'project/plasmaimg.jpg' %}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Delhi Government Plasma Donor Website</h5>
+                <p class="card-text" style="font-size: 130%;"><a class="btn btn-outline-primary" href="https://delhifightscorona.in/donateplasma/"> Click here for their website</a></p>
+              </div>
+            </div>
+          </div>
+    
+    
+    
+        <div class="col">
+            <div class="card h-100">
+                {% load static %}
+              <img src="{% static 'project/covidhelp.png' %}" class="card-img-top" alt="helpline" style="width: 100%;height: 240px;">
+              <div class="card-body">
+                <h5 class="card-title">Covid Helpline Numbers</h5>
+                <p class="card-text" style="font-size: 130%;">
+                    <ul>
+                        <li>
+                            CORONA (COVID 19) HELPLINE:  011-23978046 OR 1075
+                        </li>
+                        <li>
+                            DELHI COVID HELPLINE : 1031
+                        </li>
+                        <li>
+                            COVID CONTROL ROOM : 011-22391014,22302441,22304568 ,22300012
+                        </li>
+                        <li>
+                            COVID HELPLINE FOR POSITIVE PAITENTS :1800-111-747
+                        </li>
+                    </ul>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-group">
+            <div class="col">
+                <div class="card h-100">
+                    {% load static %}
+                  <img src="{% static 'project/cylinder.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">List of Oxygen Suppliers</h5>
+                    <p class="card-text" style="font-size: 130%;"><a class="btn btn-outline-primary" href="{% url 'oxy' %}">List of Oxygen Suppliers</a>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <div class="card-group">
+            <div class="col">
+                <div class="card h-100">
+                    {% load static %}
+                  <img src="{% static 'project/doctor patient.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">List of Plasma Donors</h5>
+                    <p class="card-text" style="font-size: 130%;"><a class="btn btn-outline-primary"href="{% url 'plas' %}">Click Here for List of Plasma Donors</a>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <div class="card-group">
+            <div class="col">
+                <div class="card h-100">
+                    {% load static %}
+                  <img src="{% static 'project/help.png' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Want to help Patients</h5>
+                    <p class="card-text" style="font-size: 130%;"><a class="btn btn-outline-primary" href="{% url 'pat' %}">Load Patient Requirements</a> 
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <div class="card-group" >
+            <div class="col" >
+                <div class="card h-100" style="width: 80%;">
+                    {% load static %}
+                  <img src="{% static 'project/beds.jpg' %}" class="card-img-top" alt="..."  >
+                  <div class="card-body">
+                    <h5 class="card-title">Check ICU/Oxygen Beds Availability in Delhi</h5>
+                    <p class="card-text" style="font-size: 130%;"><a class="btn btn-outline-primary"href="{% url 'beds' %}">Click Here</a>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>  
+
+
+<br>
+    
+<div class="platform_div" style="margin-top: 2cm; background-color: rgb(251, 228, 201);">
+    
+    <br>
+    
+    <h4 class="platform_heading" style="margin: 3%;text-align: center;">How to Use this platform?</h4>
+        <ol style="size: 30cm;margin: 3%;padding: 3%;">
+            <li>
+                <h6 class="platform_list">For patients/ patient's relative: </h6>You can find the list of oxygen suppliers and plasma donors by clicking on links above. If your requirement is still not met, please register/login and post your request. We will try to reach out to you as soon as possible.
+            </li>
+            <li>
+                <h6 class="platform_list">For Oxygen Suppliers:</h6> Please login (if you're already registered on this website)/ register (if you're a new user), fill out the form for oxygen supplier and submit. Your request will be posted in List of Oxygen Suppliers. 
+            </li>
+            <li>
+                <h6 class="platform_list">For Plasma Donors: </h6> Please login (if you're already registered on this website)/ register (if you're a new user), fill out the form for plasmna donor and submit. Your request will be posted in List of Plasma Donors. 
+            </li>
+            <li>
+                <h6 class="platform_list" >For login, use your username and password. To register (if you're a new user), click on register and fill out: username, email id, password. Once you are logged in /registered, you will be tasken to a dashboard automatically where you can fill out form depending upon you requiremnet/role. Registerd users don't have to register again and again</h6>
+            </li>
+        </ol>
+    
+</div>
+
+
+            
+            
+
+{% endblock %}

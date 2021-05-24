@@ -1,0 +1,43 @@
+{% extends "project/login_layout.html" %}
+
+{% block body %}
+
+<h2>Register</h2>
+
+{% if message %}
+    <div>{{ message }}</div>
+{% endif %}
+<!------------------------------------------------------------------------->
+<br>
+    
+<div  >
+    <h5 style="color: firebrick;">Please register yourself if you are:a patient/relative with requirement/an oxygen supplier/ plasma donor</h5>
+    <br>
+    
+</div>
+
+<!------------------------------------------------------------------------->
+<a class="btn btn-outline-primary" href="{% url 'pat' %}">Load Patient Requirements</a> 
+<a class="btn btn-outline-primary" href="{% url 'oxy' %}">List of Oxygen Suppliers</a>
+<a class="btn btn-outline-primary"href="{% url 'plas' %}">List of Plasma Donors</a>
+<a class="btn btn-outline-primary"href="{% url 'login_details' %}">Login</a>
+<br>
+<br>
+
+<!------------------------------------------------------------------------->
+
+<form class="login-form" action="{% url 'register' %}" method="post">
+    {% csrf_token %}
+    <input type="text" id="username_login" name="username" placeholder="USERNAME" style="padding: 1%; margin:1% ;">
+    <input type="email" id="email_login" name="email" placeholder="Enter Email Address" style="padding: 1%;margin:1%">
+    <input type="password" id="password-login" name="password" placeholder="PASSWORD" style="padding: 1%;margin:1%">
+    <input type="password" id="c-password-login" name="c_password" placeholder="CONFIRM PASSWORD" style="padding: 1%;margin:1%">
+    
+    <input class="btn btn-primary" type="submit" value="Register">
+
+    <!--<button type="submit" onclick="login_func()" id="submit_button">Login</button>-->
+</form>
+Already have an account? <a href="{% url 'login_details' %}">Login here.</a>
+
+<!------------------------------------------------------------------------->
+{% endblock %}
